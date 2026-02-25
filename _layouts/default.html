@@ -100,7 +100,7 @@
 
 </div>
 
-<!-- Mermaid support (loads only if needed) -->
+<!-- Mermaid support  -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -110,17 +110,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const script = document.createElement("script");
   script.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
 
-  script.onload = async function () {
+  script.onload = function () {
 
-    await mermaid.initialize({
+    mermaid.initialize({
       startOnLoad: false,
       theme: "base",
       themeVariables: {
-        primaryColor: "var(--bg-muted)",
-        primaryTextColor: "var(--text-main)",
-        primaryBorderColor: "var(--border-color)",
-        lineColor: "var(--text-muted)",
-        fontFamily: "var(--font-body)"
+        primaryColor: "#ffffff",
+        primaryTextColor: "#4f3b27",
+        primaryBorderColor: "#c8c1a3",
+        lineColor: "#6a523a",
+        fontFamily: "Segoe UI, sans-serif"
       }
     });
 
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
       block.parentElement.replaceWith(div);
     });
 
-    await mermaid.run();
+    mermaid.run();
   };
 
   document.head.appendChild(script);
