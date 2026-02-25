@@ -220,6 +220,10 @@ pre code {
   padding: 0;
 }
 
+pre code.language-mermaid {
+  border-style: dashed;
+}
+
 /* -------------------------
    Keyboard keys
 -------------------------- */
@@ -317,6 +321,56 @@ a:hover {
 .admonition.caution {
   border-color: #e74c3c;
 }
+
+
+/* -------------------------
+   Mermaid diagrams
+-------------------------- */
+
+.mermaid {
+  background: var(--bg-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.8rem 0;
+  overflow-x: auto;
+}
+
+/* Make diagram text match site typography */
+.mermaid text {
+  font-family: var(--font-body) !important;
+  fill: var(--text-main) !important;
+}
+
+/* Nodes */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  fill: var(--bg-main) !important;
+  stroke: var(--border-color) !important;
+}
+
+/* Arrow lines */
+.mermaid .edgePath path {
+  stroke: var(--text-muted) !important;
+}
+
+/* Arrowheads */
+.mermaid .arrowheadPath {
+  fill: var(--text-muted) !important;
+}
+
+/* Labels */
+.mermaid .edgeLabel {
+  background-color: var(--bg-main) !important;
+}
+
+/* Flowchart decision diamonds look nicer */
+.mermaid .node polygon {
+  stroke-width: 1.2px;
+}
+
 
 /* -------------------------
    Responsive layout

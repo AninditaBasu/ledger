@@ -29,6 +29,7 @@ ledger:
 - [Codes](#codes)
 - [Admonitions](#admonitions)
 - [Images](#images)
+- [Mermaid diagrams](#mermaid-diagrams)
 
 ---
 
@@ -145,6 +146,17 @@ Rendered like this: Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.
 Images are centered.
 
 ![Site logo]({{ '/images/logo.png' | relative_url }})
+
+---
+
+## Mermaid diagrams
+
+```mermaid
+graph TD
+A[Start] --> B{Decision}
+B -->|Yes| C[Do thing]
+B -->|No| D[Stop]
+```
 
 ---
 

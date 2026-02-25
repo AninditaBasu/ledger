@@ -23,6 +23,7 @@ A minimal documentation theme for GitHub Pages.
 - Parchment-style background with soft ink colours.
 - Mobile-responsive. Sidebar collapses into top navigation.
 - Zero local setup. Works directly with GitHub Pages through `remote_theme`.
+- Mermaid support.
 
 ## Live example
 
@@ -103,9 +104,9 @@ You can display a custom logo in the sidebar and a favicon in the browser tab. P
 | Purpose                | File name             | Recommended size                       |
 | ---------------------- | --------------------- | -------------------------------------- |
 | Legacy browser support | `favicon.ico`         | multi-size (16 x 16, 32 x 32, 48 x 48) |
-| Standard favicon       | `favicon-32.png`      | 32 x 32                                |
-| Android/PWA            | `favicon-192.png`     | 192 x 192                              |
-| Apple touch            | `apple-touch-icon.png`| 180 x 180                              |
+| Standard favicon       | `favicon_32.png`      | 32 x 32                                |
+| Android/PWA            | `favicon_192.png`     | 192 x 192                              |
+| Apple touch            | `apple_touch_icon.png`| 180 x 180                              |
 
 ```
 images/

@@ -17,7 +17,7 @@
 
     {% if preset == "dark" %}
       --bg-main: {{ p.background | default: "#e3ead3" }};
-	   --bg-sidebar: {{ p.sidebar | default: "#f2efe6" }};
+	   --bg-sidebar: {{ p.sidebar | default: "#d6dec3" }};
 	   --bg-muted: rgba(0,0,0,0.03);
       --text-main: {{ p.text-main | default: "#4f3b27" }};
       --text-muted: {{ p.text-muted | default: "#6a523a" }};
@@ -52,6 +52,9 @@
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon_32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/images/favicon_192.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/images/apple_touch_icon.png' | relative_url }}">
+  
 
   <!-- Core stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
@@ -68,7 +71,7 @@
     </div>
 
     <div class="site-name">
-      {{ site.ledger.sidebar_title | default: site.title | default: "Documentation" }}
+      {{ site.ledger.sidebar_title | default: site.title }}
     </div>
 
     <nav>
@@ -91,10 +94,54 @@
       <hr>
       <a href="{{ site.github.repository_url }}">View on GitHub</a><br>
       &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "Site author" }}
-      <p>Built with the <a href="https://github.com/AninditaBasu/ledger">ledger</a> theme for GitHub Pages.</p>
+      <p>Built with the <a href="https://github.com/AninditaBasu/ledger">Ledger</a> theme for GitHub Pages.</p>
     </footer>
   </main>
 
 </div>
+
+<!-- Mermaid support (loads only if needed) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const mermaidBlocks = document.querySelectorAll("code.language-mermaid");
+
+  if (!mermaidBlocks.length) return;
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js";
+  script.onload = function () {
+
+    const isDark = getComputedStyle(document.documentElement)
+      .getPropertyValue('--bg-main')
+      .trim() !== "#f6f1e4";
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: isDark ? "base" : "default",
+      themeVariables: {
+        primaryColor: "var(--bg-muted)",
+        primaryTextColor: "var(--text-main)",
+        primaryBorderColor: "var(--border-color)",
+        lineColor: "var(--text-muted)",
+        fontFamily: "var(--font-body)"
+      }
+    });
+
+    // Convert code blocks into Mermaid divs
+    mermaidBlocks.forEach(block => {
+      const parent = block.parentElement;
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      parent.replaceWith(div);
+    });
+
+    mermaid.run();
+  };
+
+  document.head.appendChild(script);
+});
+</script>
+
 </body>
 </html>
