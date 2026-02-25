@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ====================================================
+       LEDGER THEME CONFIGURATION
+       ==================================================== -->
+
+  {% assign p = page.ledger | default: site.ledger | default: {} %}
+  {% assign preset = p.preset | default: "light" %}
+
+  <style>
+  :root {
+
+    {% if preset == "dark" %}
+      --bg-main: {{ p.background | default: "#e3ead3" }};
+	   --bg-sidebar: {{ p.sidebar | default: "#f2efe6" }};
+	   --bg-muted: rgba(0,0,0,0.03);
+      --text-main: {{ p.text-main | default: "#4f3b27" }};
+      --text-muted: {{ p.text-muted | default: "#6a523a" }};
+	  --text-heading: {{ p.text-heading | default: "#1a1a1a" }};
+      --border-color: {{ p.border-color | default: "#c8c1a3" }};
+      --accent: {{ p.accent | default: "#c2854d" }};
+      --table-head-bg: #d3d9b8;
+      --table-row-alt-bg: #e0e6c7;
+	  --code-bg: rgba(0,0,0,0.05);
+	  --code-border: #d8d2c5;
+
+    {% else %}
+      --bg-main: {{ p.background | default: "#f6f1e4" }};
+	  --bg-sidebar: {{ p.sidebar | default: "#f2efe6" }};
+	  --bg-muted: rgba(0,0,0,0.03);
+      --text-main: {{ p.text-main | default: "#5a4632" }};
+      --text-muted: {{ p.text-muted | default: "#7a6248" }};
+	  --text-heading: {{ p.text-heading | default: "#1a1a1a" }};
+      --border-color: {{ p.border-color | default: "#d6cbb8" }};
+      --accent: {{ p.accent | default: "#b88355" }};
+      --table-head-bg: #ede3cf;
+      --table-row-alt-bg: #f7efdf;
+	  --code-bg: rgba(0,0,0,0.05);
+	  --code-border: #d8d2c5;	  
+
+    {% endif %}
+
+    --font-body: {{ p.font_body | default: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif' }};
+	--font-mono: {{ p.font_mono | default: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace' }};
+  }
+  </style>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon-32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/images/favicon-192.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/images/apple-touch-icon.png' | relative_url }}">
+
+  <!-- Core stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <a href="{{ '/' | relative_url }}">
+        <img src="{{ '/images/logo.png' | relative_url }}" alt="Logo">
+      </a>
+    </div>
+
+    <div class="site-name">
+      {{ site.ledger.sidebar_title | default: site.title | default: "Documentation" }}
+    </div>
+
+    <nav>
+      {% if site.data.navigation %}
+        {% for item in site.data.navigation %}
+          {% if item.url and item.title %}
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <a href="{{ '/' | relative_url }}">Home</a>
+      {% endif %}
+    </nav>
+  </aside>
+
+  <main class="content">
+    {{ content }}
+
+    <footer>
+      <hr>
+      <a href="{{ site.github.repository_url }}">View on GitHub</a><br>
+      &copy; {{ "now" | date: "%Y" }} {{ site.author | default: "Site author" }}
+      <p>Built with the <a href="https://github.com/AninditaBasu/ledger">ledger</a> theme for GitHub Pages.</p>
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

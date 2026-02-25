@@ -1,0 +1,13 @@
+title: Ledger
+description: A minimal documentation theme for GitHub Pages
+
+author: Anindita Basu
+
+ledger:
+  sidebar_title: "Ledger"
+
+theme: null
+
+github:
+  repository_url: https://github.com/AninditaBasu/ledger
+

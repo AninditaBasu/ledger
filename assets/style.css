@@ -1,0 +1,343 @@
+/* =========================================================
+   LEDGER THEME BASE STYLESHEET
+   This file contains ALL layout + typography rules.
+
+   Users should not edit this file directly.
+   
+   All colour + font customisation is done through `_config.yml`
+   and inserted in CSS variables in `default.html`.
+   ========================================================= */
+
+
+/* -------------------------
+   Global colour variables
+   -------------------------
+   These are inserted dynamically from `default.html`.
+
+   --bg-main: {{ p.background | default: "#e3ead3" }};
+   --bg-sidebar: #f2efe6;
+   --bg-muted: rgba(0,0,0,0.03);
+   --text-main: {{ p.text-main | default: "#4f3b27" }};
+   --text-muted: {{ p.text-muted | default: "#6a523a" }};
+   --text-heading: #1a1a1a;
+   --border-color: {{ p.border-color | default: "#c8c1a3" }};
+   --accent: {{ p.accent | default: "#c2854d" }};
+   --table-head-bg: #d3d9b8;
+   --table-row-alt-bg: #e0e6c7;
+   --code-bg: rgba(0,0,0,0.05);
+   --code-border: #d8d2c5;
+   --font-body: main content font
+-------------------------- */
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.9; /* increased line height for cursive fonts */
+}
+
+/* -------------------------
+   Two-column layout
+-------------------------- */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar is fixed so it stays visible while scrolling */
+.sidebar {
+  width: 250px;
+  padding: 1.5rem 1.2rem;
+  border-right: 1px solid var(--border-color);
+  background: var(--bg-sidebar);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Main content area is offset to avoid the sidebar */
+.content {
+  margin-left: 250px;
+  padding: 3rem 3.5rem 4rem;
+  max-width: 900px;
+}
+
+/* -------------------------
+   Sidebar branding
+-------------------------- */
+
+.logo {
+  width: 72px;
+  height: 72px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo img {
+  display: block;          /* removes inline whitespace */
+  margin: auto;           /* true horizontal + vertical centering */
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.site-name {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Sidebar navigation links */
+
+.sidebar nav {
+  max-height: calc(100vh - 320px); /* leaves space for logo + title */
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.3rem 0;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.sidebar nav a:hover {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+/* -------------------------
+   Typography
+-------------------------- */
+
+h1 { font-size: 2rem; margin-top: 0; color: var(--text-heading); }
+h2 { font-size: 1.6rem; margin-top: 2rem; color: var(--text-heading); }
+h3 { font-size: 1.3rem; margin-top: 1.6rem; color: var(--text-heading); }
+h4 { font-size: 1.1rem; margin-top: 1.2rem; color: var(--text-heading); }
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+}
+
+p { margin: 0.8rem 0; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--border-color);
+  margin: 2rem 0;
+}
+
+/* -------------------------
+   Lists
+-------------------------- */
+
+ul, ol {
+  padding-left: 1.6rem;      /* Indent from content margin */
+  margin: 0.8rem 0;          /* Vertical spacing between paragraphs and lists */
+  line-height: 1.9;          /* Match body line-height for readability */
+}
+
+dl dt {
+  font-weight: 600;           /* Term is emphasized */
+  margin-top: 1rem;           /* Space above term */
+}
+
+dl dd {
+  margin-left: 1rem;          /* Indent description slightly */
+  margin-bottom: 0.6rem;
+  line-height: 1.9;           /* Consistent spacing */
+}
+
+/* Optional: softer list markers */
+ul li::marker, ol li::marker {
+  color: var(--text-muted);
+}
+
+/* -------------------------
+   Tables
+-------------------------- */
+
+table {
+  border-collapse: collapse;  /* Avoid double borders */
+  width: 100%;                /* Full-width tables */
+  margin: 1.5rem 0;           /* Vertical spacing */
+  font-size: 0.95rem;         /* Slightly smaller than body text */
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.8rem 1rem;             /* Generous padding for readability */
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.9;
+}
+
+th {
+  background: var(--table-head-bg);
+  font-weight: 600;
+}
+
+tr:nth-child(even) td {
+  background: var(--table-row-alt-bg);
+}
+
+/* -------------------------
+   Code formatting
+-------------------------- */
+
+code {
+  background: var(--code-bg);
+  padding: 0.15rem 0.3rem;
+  border: 2px solid var(--code-border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--code-border);
+  white-space: pre-wrap;       /* allows wrapping */
+  word-break: break-word;      /* legacy safety */
+  overflow-wrap: anywhere;     /* modern browsers */
+  overflow-x: hidden;          /* remove horizontal scrollbar */
+  font-family: var(--font-mono);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* -------------------------
+   Keyboard keys
+-------------------------- */
+
+kbd {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* -------------------------
+   Images
+-------------------------- */
+
+.content img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 80%;
+  height: auto;
+}
+
+/* -------------------------
+   Notes and blockquotes
+-------------------------- */
+
+.note, blockquote {
+  background: rgba(0,0,0,0.03);
+  border-left: 4px solid var(--accent);
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0;
+  border-radius: 6px;
+}
+
+/* -------------------------
+   Links
+------------------------- */
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--text-main);
+  text-decoration-thickness: 2px;
+}
+
+/* Sidebar links slightly softer */
+.sidebar nav a {
+  color: var(--accent);
+}
+
+.sidebar nav a:hover {
+  color: var(--text-main);
+}
+
+/* -------------------------
+   Admonitions
+  ------------------------- */
+
+.admonition {
+  border-left: 4px solid var(--accent);
+  background: var(--bg-muted);
+  padding: 0.8rem 1rem;
+  margin: 1.4rem 0;
+  border-radius: 6px;
+}
+
+.admonition-title {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.admonition-content p:first-child {
+  margin-top: 0;
+}
+
+.admonition.note {
+  border-color: #4a90e2;
+}
+
+.admonition.tip {
+  border-color: #27ae60;
+}
+
+.admonition.warning {
+  border-color: #e67e22;
+}
+
+.admonition.caution {
+  border-color: #e74c3c;
+}
+
+/* -------------------------
+   Responsive layout
+-------------------------- */
+
+@media (max-width: 800px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+}

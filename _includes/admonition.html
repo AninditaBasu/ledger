@@ -1,0 +1,8 @@
+<div class="admonition {{ include.type | default: "note" }}">
+  <div class="admonition-title">
+    {{ include.title | default: include.type | capitalize }}
+  </div>
+  <div class="admonition-content">
+    {{ include.content | markdownify }}
+  </div>
+</div>
