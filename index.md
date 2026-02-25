@@ -11,5 +11,5 @@ title: Ledger Theme
 
 See it in action here:
 
-- [Default (light)]({{ '/examples/light.html' | relative_url }}), for the default (light) look. Light tan with brown ink.
+- [Default]({{ '/examples/light.html' | relative_url }}), for the light look. Light tan with brown ink.
 - [Dark]({{ '/examples/dark.html' | relative_url }}), for a darker, palmleaf look. Muted green with plant-ink brown text.
