@@ -4,7 +4,6 @@ ledger:
   preset: palmleaf
   palette:
     accent: red
-	background: "#f6f1e4"
 ---
 
 # Custom overrides through frontmatter
@@ -26,7 +25,6 @@ ledger:
   preset: palmleaf
   palette:
     accent: red
-	background: "#f6f1e4"
 ```
 
 ---
