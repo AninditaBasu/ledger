@@ -1,10 +1,10 @@
 ---
-title: Ledger Dark Theme
+title: Night-ink preset (dark)
 ledger:
-  preset: dark
+  preset: night-ink
 ---
 
-# Ledger Dark Theme
+# Night-ink preset (dark)
 
 ---
 
@@ -17,7 +17,7 @@ plugins:
   - jekyll-remote-theme
 
 ledger:
-  preset: dark
+  preset: night-ink
 ```
 
 ---
@@ -157,6 +157,4 @@ A[Start] --> B{Decision}
 B -->|Yes| C[Do thing]
 B -->|No| D[Stop]
 ```
-
----
 

@@ -1,4 +1,6 @@
-- title: Default (light)
-  url: /examples/light.html
-- title: Dark
-  url: /examples/dark.html
+- title: Palmleaf (default, light)
+  url: /examples/palmleaf.html
+- title: Night ink (dark)
+  url: /examples/night-ink.html
+- title: Custom (page-level overrides)
+  url: /examples/custom-frontmatter.html

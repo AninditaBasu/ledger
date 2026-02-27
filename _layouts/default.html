@@ -9,51 +9,91 @@
        LEDGER THEME CONFIGURATION
        ==================================================== -->
 
-  {% assign p = page.ledger | default: site.ledger | default: {} %}
-  {% assign preset = p.preset | default: "light" %}
+  <!-- 
+  THEME CONFIG CASCADE
+
+  Priority order is like this: Preset < Site config < Page frontmatter
+
+-->
+  
+  {%- assign site_cfg = site.ledger | default: {} -%}
+  {%- assign page_cfg = page.ledger | default: {} -%}
+  
+  {%- assign preset = page_cfg.preset | default: site_cfg.preset | default: "palmleaf" -%}
+  
+  {%- assign site_palette = site_cfg.palette | default: {} -%}
+  {%- assign page_palette = page_cfg.palette | default: {} -%}
 
   <style>
   :root {
 
-    {% if preset == "dark" %}
-      --bg-main: {{ p.background | default: "#e3ead3" }};
-	   --bg-sidebar: {{ p.sidebar | default: "#d6dec3" }};
-	   --bg-muted: rgba(0,0,0,0.03);
-      --text-main: {{ p.text-main | default: "#4f3b27" }};
-      --text-muted: {{ p.text-muted | default: "#6a523a" }};
-	  --text-heading: {{ p.text-heading | default: "#1a1a1a" }};
-      --border-color: {{ p.border-color | default: "#c8c1a3" }};
-      --accent: {{ p.accent | default: "#c2854d" }};
-      --table-head-bg: #d3d9b8;
-      --table-row-alt-bg: #e0e6c7;
-	  --code-bg: rgba(0,0,0,0.05);
-	  --code-border: #d8d2c5;
+    {% if preset == "night-ink" %}
+      --bg-main: {{ page_palette.background
+                | default: site_palette.background
+                | default: "#2b1d13" }};
+	   --bg-sidebar: {{ page_palette.sidebar
+                | default: site_palette.sidebar
+                | default: "#352417" }};
+	   --bg-muted: rgba(255,255,255,0.04);
+      --text-main: {{ page_palette.text-main
+                | default: site_palette.text-main
+                | default: "#f1d28a" }};
+      --text-muted: {{ page_palette.text-muted
+                | default: site_palette.text-muted
+                | default: "#c9b07a" }};
+      --text-heading: {{ page_palette.text-heading
+                | default: site_palette.text-heading
+                | default: "#ffe4a8" }};
+      --border-color: {{ page_palette.border-color
+                | default: site_palette.border-color
+                | default: "#4a3626" }};
+      --accent: {{ page_palette.accent
+                | default: site_palette.accent
+                | default: "#ffd57f" }};
+      --table-head-bg: #3b2a1d;
+      --table-row-alt-bg: #352417;
+	  --code-bg: rgba(0,0,0,0.35);
+	  --code-border: #5a4433;
 
     {% else %}
-      --bg-main: {{ p.background | default: "#f6f1e4" }};
-	  --bg-sidebar: {{ p.sidebar | default: "#f2efe6" }};
-	  --bg-muted: rgba(0,0,0,0.03);
-      --text-main: {{ p.text-main | default: "#5a4632" }};
-      --text-muted: {{ p.text-muted | default: "#7a6248" }};
-	  --text-heading: {{ p.text-heading | default: "#1a1a1a" }};
-      --border-color: {{ p.border-color | default: "#d6cbb8" }};
-      --accent: {{ p.accent | default: "#b88355" }};
-      --table-head-bg: #ede3cf;
-      --table-row-alt-bg: #f7efdf;
+      --bg-main: {{ page_palette.background
+                | default: site_palette.background
+                | default: "#e3ead3" }};
+	   --bg-sidebar: {{ page_palette.sidebar
+                | default: site_palette.sidebar
+                | default: "#d6dec3" }};
+	   --bg-muted: rgba(0,0,0,0.03);
+      --text-main: {{ page_palette.text-main
+                | default: site_palette.text-main
+                | default: "#4f3b27" }};
+      --text-muted: {{ page_palette.text-muted
+                | default: site_palette.text-muted
+                | default: "#6a523a" }};
+      --text-heading: {{ page_palette.text-heading
+                | default: site_palette.text-heading
+                | default: "#1a1a1a" }};
+      --border-color: {{ page_palette.border-color
+                | default: site_palette.border-color
+                | default: "#c8c1a3" }};
+      --accent: {{ page_palette.accent
+                | default: site_palette.accent
+                | default: "#c2854d" }};
+      --table-head-bg: #d3d9b8;
+      --table-row-alt-bg: #e0e6c7;
 	  --code-bg: rgba(0,0,0,0.05);
 	  --code-border: #d8d2c5;	  
 
     {% endif %}
 
-    --font-body: {{ p.font_body | default: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif' }};
-	--font-mono: {{ p.font_mono | default: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace' }};
+    --font-body: {{ page_cfg.font_body | default: site_cfg.font_body | default: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif' }};
+    --font-mono: {{ page_cfg.font_mono | default: site_cfg.font_mono | default: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace' }};
   }
   </style>
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon_32.png' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/images/favicon_192.png' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/images/apple_touch_icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon-32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/images/favicon-192.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/images/apple-touch-icon.png' | relative_url }}">
   
 
   <!-- Core stylesheet -->

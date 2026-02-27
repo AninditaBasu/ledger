@@ -1,10 +1,10 @@
 ---
-title: Ledger Light Theme (Default)
+title: Palmleaf preset (default)
 ledger:
-  preset: light
+  preset: palmleaf
 ---
 
-# Ledger Light Theme (Default)
+# Palmleaf preset (default)
 
 ---
 
@@ -154,5 +154,3 @@ A[Start] --> B{Decision}
 B -->|Yes| C[Do thing]
 B -->|No| D[Stop]
 ```
-
----

@@ -1,6 +1,6 @@
 # `ledger` theme
 
-A minimal documentation theme for GitHub Pages.
+A documentation theme for GitHub Pages.
 
 ---
 
@@ -20,18 +20,18 @@ A minimal documentation theme for GitHub Pages.
 ## Features
 
 - Two-column layout with left navigation panel.
-- Parchment-style background with soft ink colours.
 - Mobile-responsive. Sidebar collapses into top navigation.
-- Zero local setup. Works directly with GitHub Pages through `remote_theme`.
+- No local setup for builds needed. Works directly with GitHub Pages through `remote_theme`.
 - Mermaid support.
 
 ## Live example
 
-See the theme in action, with all of its possible presets, at [https://aninditabasu.github.io/ledger/](https://aninditabasu.github.io/ledger/)
+See the theme in action, with its presets and possible customisations, at [https://aninditabasu.github.io/ledger/](https://aninditabasu.github.io/ledger/)
 
 ## How to use
 
 1. In your own repository root, create a file named `_config.yml` with the following code snippet:
+
     ```
     remote_theme: AninditaBasu/ledger
     plugins:
@@ -39,6 +39,16 @@ See the theme in action, with all of its possible presets, at [https://aninditab
     ```
 1. Enable GitHub Pages: In your repository settings, go to **Pages** > **Deploy from branch** > **main**.
 1. Push your site files.
+
+Your site should build itself with the `palmleaf` preset, which is the default. To use the dark theme (called `night-ink`), edit your `_config.yml` like so:
+
+```
+remote_theme: AninditaBasu/ledger
+plugins:
+  - jekyll-remote-theme
+ledger:
+  preset: night-ink
+```
 
 ## Configuration
 
@@ -54,9 +64,33 @@ You can customise the `ledger` theme by specifying the following fields in your 
 | `remote_theme`   | Must be set to `AninditaBasu/ledger`    |
 | `plugins`     | Must include `jekyll-remote-theme`     |
 | `ledger`   | Theme configuration namespace  |
-| `ledger.preset`   | If used, must be `dark` |
+| `ledger.preset`   | If used, must be `night-ink`; if unspecified, defaults to `palmleaf`  |
+| `ledger.palette`   | For custom colours  |
+| `ledger.palette.background`   | Background colour of the pages  |
+| `ledger.palette.sidebar`   | Background colour of the sidebar on the pages |
+| `ledger.palette.text-main`   | Font colour of the text of the body elements |
+| `ledger.palette.text-muted`   | Font colour of secondary text such as sidebar navigation links  |
+| `ledger.palette.text-heading`   | Font colour of the text of  headings |
+| `ledger.palette.border-color`   | Colour of the borders in elements such as code blocks and admonitions  |
+| `ledger.palette.accent`   |  Accent colour for links, highlights, and interactive elements  |
 
-Here's an example snippet:
+Additionally, you can set the theme of any page to be different from the site theme, by specifying an override through the page front-matter, like this:
+
+```
+---
+title: Dark Archive
+ledger:
+  preset: night-ink
+  palette:
+    accent: red
+---
+```
+
+Customisation work by the following order of priority: Preset < Site config < Page frontmatter.
+
+This means that the variables in the page frontmatter have the highest priority, followed by the values you specify through your `_config.yml` file. The default (and lowest priority) is the values specified in the two presets, which are `palmleaf` and `night-ink`.
+
+Here's an example snippet for `_config.yml`:
 
 ```
 title: The title of your website
@@ -71,22 +105,14 @@ plugins:
   - jekyll-remote-theme
 
 ledger:
-  preset: dark
+  preset: night-ink
+  palette:
+    accent: red
 ```
 
-### Minimal project structure
+## Navigation
 
-```
-_config.yml
-index.md
-images/
-  logo.png
-  favicon.ico
-```
-
-### Navigation
-
-Create a file called `_data/navigation.yml` in your project root (next to `_config.yml`). Then, specify the ToC in it. For example:
+Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. For example:
 
 ```
 - title: Home
@@ -97,16 +123,16 @@ Create a file called `_data/navigation.yml` in your project root (next to `_conf
   url: /api.html
 ```
 
-### Logos and favicons
+## Logos and favicons
 
 You can display a custom logo in the sidebar and a favicon in the browser tab. Place your images in an `images` folder in your project root; the theme automatically detects them. You can have your logo and favicon in more than one size, for example:
 
-| Purpose                | File name             | Recommended size                       |
-| ---------------------- | --------------------- | -------------------------------------- |
-| Legacy browser support | `favicon.ico`         | multi-size (16 x 16, 32 x 32, 48 x 48) |
-| Standard favicon       | `favicon_32.png`      | 32 x 32                                |
-| Android/PWA            | `favicon_192.png`     | 192 x 192                              |
-| Apple touch            | `apple_touch_icon.png`| 180 x 180                              |
+| Purpose                | File name     | Recommended size    |
+| ------------------ | ------------- | ---------------------- |
+| Legacy browser support | `favicon.ico`     | multi-size (16 x 16, 32 x 32, 48 x 48) |
+| Standard favicon  | `favicon-32.png`      | 32 x 32    |
+| Android/PWA  | `favicon-192.png`     | 192 x 192    |
+| Apple touch  | `apple-touch-icon.png`| 180 x 180    |
 
 ```
 images/
@@ -117,41 +143,6 @@ images/
 ```
 
 Supported logo formats are `PNG`, `SVG`, `WebP`.
-
-### Page-specific overrides
-
-You can set the theme of any page to be different from the site theme, by specifying an override through the page front-matter, like this:
-
-```
----
-title: Dark Archive
-ledger:
-  preset: dark
----
-
-```
-
-In this example, only this page uses the `dark` preset; other pages use the site-wide preset you specified in `_config.yml`. If no site-wide preset is specified in `_config.yml`, the default (light) theme is used.
-
-
-## Troubleshooting
-
-**The theme does not load**
-
-1. Confirm that `_config.yml` contains the following snippet:
-    ```
-	plugins:
-  	  - jekyll-remote-theme
-    ```
-1. Ensure that is **GitHub Pages**, the **Source** field is set to **GitHub Actions**.
-1. Push a commit after changing `_config.yml`.
-
-**The theme is not applied**
-
-If your site already contains `_layouts` or `assets` folders, they override the theme files. To use the `ledger` theme:
-
-1. Remove or rename any local `_layouts/default.html` file.
-1. Remove or rename any local `assets/style.css`.
 
 ## License
 
