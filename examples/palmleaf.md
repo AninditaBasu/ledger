@@ -142,8 +142,8 @@ Rendered like this: Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.
 
 ```mermaid
 flowchart LR
-    A@{ shape: doc, label: "T101, Installation overview"} --> | prerequisite | B@{ shape: doc, label: "T203, System requirements"}
-    A --> | prerequisite | C@{ shape: doc, label: "T305, Setup steps"}  
+    A["T101, Installation overview"] --> | prerequisite | B["T203, System requirements"]
+    A --> | prerequisite | C["T305, Setup steps"]
 ```
 
 ---
