@@ -12,7 +12,7 @@ layout: default
 <script>
 window.onload = function() {
   SwaggerUIBundle({
-    url: "{{ page.openapi | relative_url }}",
+    url: "{{ spec | relative_url }}",,
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [SwaggerUIBundle.presets.apis],
