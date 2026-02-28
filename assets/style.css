@@ -119,14 +119,14 @@ body {
 /* NAV GROUPS */
 
 .nav-group-title {
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
   font-weight: 600;
   color: var(--text-heading);
 }
 
 .nav-children {
   margin-left: 0.8rem;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 }
 
 .nav-child {
@@ -406,13 +406,13 @@ a:hover {
 }
 
 .api-desc {
-  color: var(--ledger-text-secondary);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 
 /* Endpoint blocks */
 .api-body h2 {
-  border-bottom: 2px solid var(--ledger-accent);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: .3rem;
   margin-top: 2.5rem;
 }
@@ -420,16 +420,15 @@ a:hover {
 /* Method labels */
 .api-body .method {
   font-weight: bold;
-  font-family: monospace;
+  font-family: var(--font-mono);
   padding: .2rem .5rem;
   border-radius: 4px;
-  background: var(--ledger-accent);
-  color: white;
+  background: var(--accent);
 }
 
 /* Code blocks inside API pages */
 .api-body pre {
-  background: var(--ledger-background-soft);
+  background: var(--bg-muted);
 }
 
 

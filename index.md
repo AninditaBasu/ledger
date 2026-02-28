@@ -19,6 +19,7 @@ Also see the following pages:
 
 - [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }})
 - [REST API]({{ '/examples/api-example.html' | relative_url }})
+- [REST API interactive]({{ '/examples/api-example-redoc.html' | relative_url }})
 
 ## How to use
 
@@ -104,15 +105,27 @@ ledger:
 
 ## Navigation
 
-Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. For example:
+Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. One level of nesting is supported.
+
+For example:
 
 ```
 - title: Home
   url: /
-- title: Getting Started
-  url: /getting-started.html
-- title: API
-  url: /api.html
+- title: Installing
+  children:
+    - title: Prerequisites
+      url: /prereqs.html
+    - title: Steps
+      url: /install-steps.html
+- title: Getting started
+  url: /quick-start.html
+- title: Configuring
+  children:
+    - title: Actions
+      url: /config-action.html
+    - title: Workflows
+      url: /config-workflow.html
 ```
 
 ## Logos and favicons
