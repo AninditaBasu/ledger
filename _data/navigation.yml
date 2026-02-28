@@ -10,7 +10,9 @@
   children:
     - title: Mermaid
       url: /examples/mermaid-example.html
-    - title: REST API
+    - title: REST API static
       url: /examples/api-example.html
+    - title: REST API interactive
+      url: /examples/api-example-swagger.html
 - title: Customisation (page-level overrides)
   url: /examples/custom-frontmatter.html

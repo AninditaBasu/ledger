@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="swagger-wrapper">
+  <div id="swagger-ui"></div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+<script>
+window.onload = function() {
+  SwaggerUIBundle({
+    url: "{{ page.openapi | relative_url }}",
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    presets: [SwaggerUIBundle.presets.apis],
+    layout: "BaseLayout"
+  });
+};
+</script>

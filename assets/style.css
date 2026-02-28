@@ -431,6 +431,17 @@ a:hover {
   background: var(--bg-muted);
 }
 
+.swagger-wrapper {
+  padding: 2rem;
+}
+
+.swagger-ui {
+  font-family: var(--font-body);
+}
+
+.swagger-ui .topbar {
+  display: none;
+}
 
 /* -------------------------
    Responsive layout

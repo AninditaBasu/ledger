@@ -19,7 +19,7 @@ Also see the following pages:
 
 - [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }})
 - [REST API]({{ '/examples/api-example.html' | relative_url }})
-- [REST API interactive]({{ '/examples/api-example-redoc.html' | relative_url }})
+- [REST API interactive]({{ '/examples/api-example-swagger.html' | relative_url }})
 
 ## How to use
 
