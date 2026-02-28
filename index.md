@@ -15,9 +15,10 @@ Here are the demo pages for the two presets, `palmleaf` (light) and `night-ink` 
 - [Night Ink]({{ '/examples/night-ink.html' | relative_url }}), for the codex-in-lamplight look. Deep brown with gold lettering.
 - [Custom]({{ '/examples/custom-frontmatter.html' | relative_url }}), for your own colour choices.
 
-Also see the following pages for Mermaid support:
+Also see the following pages:
 
 - [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }})
+- [REST API]({{ '/examples/api-example.html' | relative_url }})
 
 ## How to use
 

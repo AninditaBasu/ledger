@@ -119,7 +119,7 @@ body {
 /* NAV GROUPS */
 
 .nav-group-title {
-  margin-top: 1.2rem;
+  margin-top: 0.4rem;
   font-weight: 600;
   color: var(--text-heading);
 }
@@ -346,7 +346,6 @@ a:hover {
   border-color: #e74c3c;
 }
 
-
 /* -------------------------
    Mermaid diagrams
 -------------------------- */
@@ -393,6 +392,44 @@ a:hover {
 /* Flowchart decision diamonds look nicer */
 .mermaid .node polygon {
   stroke-width: 1.2px;
+}
+
+/* API layout */
+
+.api-doc {
+  max-width: 900px;
+  margin: auto;
+}
+
+.api-header {
+  margin-bottom: 2rem;
+}
+
+.api-desc {
+  color: var(--ledger-text-secondary);
+  font-size: 1.05rem;
+}
+
+/* Endpoint blocks */
+.api-body h2 {
+  border-bottom: 2px solid var(--ledger-accent);
+  padding-bottom: .3rem;
+  margin-top: 2.5rem;
+}
+
+/* Method labels */
+.api-body .method {
+  font-weight: bold;
+  font-family: monospace;
+  padding: .2rem .5rem;
+  border-radius: 4px;
+  background: var(--ledger-accent);
+  color: white;
+}
+
+/* Code blocks inside API pages */
+.api-body pre {
+  background: var(--ledger-background-soft);
 }
 
 

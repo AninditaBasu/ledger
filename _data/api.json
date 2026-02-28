@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/entries",
+      "description": "Returns all ledger entries"
+    },
+    {
+      "method": "POST",
+      "path": "/entries",
+      "description": "Creates an entry"
+    }
+  ]
+}

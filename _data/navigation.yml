@@ -9,6 +9,8 @@
 - title: Extended support
   children:
     - title: Mermaid
-      url: /mermaid-example.html
+      url: /examples/mermaid-example.html
+    - title: REST API
+      url: /examples/api-example.html
 - title: Customisation (page-level overrides)
   url: /examples/custom-frontmatter.html
