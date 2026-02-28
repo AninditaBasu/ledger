@@ -7,7 +7,11 @@ title: Ledger Theme
 
 ---
 
-`ledger` is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages. It is suitable for projects with a small set of doc files.
+Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages, and is suitable for projects with a small set of doc files. It supports:
+
+- Mermaid diagrams
+- Static API pages
+- Interactive API pages
 
 Here are the demo pages for the two presets, `palmleaf` (light) and `night-ink` (dark), plus an example page to show how you can apply your own preferences as overrides:
 
