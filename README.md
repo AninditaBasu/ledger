@@ -8,11 +8,8 @@ A documentation theme for GitHub Pages.
 - [Live example](#live-example)
 - [How to use](#how-to-use)
 - [Configuration](#configuration)
-   - [Minimal project structure](#minimal-project-structure)
-   - [Navigation](#navigation)
-   - [Logos and favicon](#logos-and-favicon)
-   - [Page-specific overrides](#page-specific-overrides)
-- [Troubleshooting](#troubleshooting)
+- [Navigation](#navigation)
+- [Logos and favicon](#logos-and-favicon)
 - [License](#license)
 
 ---
@@ -23,6 +20,7 @@ A documentation theme for GitHub Pages.
 - Mobile-responsive. Sidebar collapses into top navigation.
 - No local setup for builds needed. Works directly with GitHub Pages through `remote_theme`.
 - Mermaid support.
+- OpenAPI support.
 
 ## Live example
 
