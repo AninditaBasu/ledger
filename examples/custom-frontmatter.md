@@ -35,7 +35,6 @@ ledger:
 - [Tables](#tables)
 - [Codes](#codes)
 - [Admonitions](#admonitions)
-- [Mermaid diagrams](#mermaid-diagrams)
 - [Images](#images)
 
 ---
@@ -145,16 +144,6 @@ Rendered like this: Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.
    title="Caution"
    content="And a cautionary note."
 %}
-
----
-
-## Mermaid diagrams
-
-```mermaid
-flowchart LR
-    A["T101, Installation overview"] --> | prerequisite | B["T203, System requirements"]
-    A --> | prerequisite | C["T305, Setup steps"]
-```
 
 ---
 

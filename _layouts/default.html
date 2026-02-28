@@ -114,16 +114,31 @@
       {{ site.ledger.sidebar_title | default: site.title }}
     </div>
 
-    <nav>
-      {% if site.data.navigation %}
-        {% for item in site.data.navigation %}
-          {% if item.url and item.title %}
-            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          {% endif %}
-        {% endfor %}
-      {% else %}
-        <a href="{{ '/' | relative_url }}">Home</a>
-      {% endif %}
+    <nav class="nav">
+    {% if site.data.navigation %}
+      {% for item in site.data.navigation %}
+        {% if item.url %}
+          <a class="nav-item" href="{{ item.url | relative_url }}">
+            {{ item.title }}
+          </a>
+        {% else %}
+          <div class="nav-group-title">
+            {{ item.title }}
+          </div>
+        {% endif %}
+        {% if item.children %}
+          <div class="nav-children">
+            {% for child in item.children %}
+              <a class="nav-child" href="{{ child.url | relative_url }}">
+                {{ child.title }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <a href="{{ '/' | relative_url }}">Home</a>
+    {% endif %}
     </nav>
   </aside>
 

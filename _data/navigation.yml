@@ -1,8 +1,14 @@
 - title: Home
   url: /
-- title: Palmleaf (default, light)
-  url: /examples/palmleaf.html
-- title: Night ink (dark)
-  url: /examples/night-ink.html
-- title: Custom (page-level overrides)
+- title: Presets
+  children:
+    - title: Palmleaf (default, light)
+      url: /examples/palmleaf.html
+    - title: Night ink (dark)
+      url: /examples/night-ink.html
+- title: Extended support
+  children:
+    - title: Mermaid
+      url: /mermaid-example.html
+- title: Customisation (page-level overrides)
   url: /examples/custom-frontmatter.html
