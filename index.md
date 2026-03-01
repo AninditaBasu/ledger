@@ -35,6 +35,8 @@ Also see the following pages:
 - [API pages](#api-pages)
   -  [Static API](#static-api)
   -  [Interactive API](#interactive-api)
+
+
 ---------
 
 ## How to enable the theme
