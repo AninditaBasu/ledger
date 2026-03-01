@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ledger Theme
+title: Ledger Theme for GitHub Pages
 ---
 
 # Ledger Theme for GitHub Pages
@@ -25,7 +25,19 @@ Also see the following pages:
 - [REST API]({{ '/examples/api-example.html' | relative_url }})
 - [REST API interactive]({{ '/examples/api-example-swagger.html' | relative_url }})
 
-## How to use
+---------
+
+- [How to enable the theme](#how-to-enable-the-theme)
+- [Theme configuration](#theme-configuration)
+- [Specifying the left-column TOC](#specifying-the-left-column-toc)
+- [Logos and favicons](#logos-and-favicons)
+- [Page elements](#page-elements)
+- [API pages](#api-pages)
+  -  [Static API](#static-api)
+  -  [Interactive API](#interactive-api)
+---------
+
+## How to enable the theme
 
 1. In your own repository root, create a file named `_config.yml` with the following code snippet:
 
@@ -47,7 +59,7 @@ ledger:
   preset: night-ink
 ```
 
-## Configuration
+## Theme configuration
 
 You can customise the `ledger` theme by specifying the following fields in your site `_config.yml` file. 
 
@@ -56,6 +68,7 @@ You can customise the `ledger` theme by specifying the following fields in your 
 | `title`    | Displayed as the site name in the sidebar    |
 | `author`  | Used in the footer copyright line       |
 | `description`   | Used in the HTML `<meta>` description tag    |
+| `copyright_start`| If present, used in the site footer; default is current year |
 | `github`     | Displayed in the footer      |
 | `github.repository_url`  | Must be the URL of your GitHub repository      |
 | `remote_theme`   | Must be set to `AninditaBasu/ledger`    |
@@ -107,7 +120,7 @@ ledger:
     accent: red
 ```
 
-## Navigation
+## Specifying the left-column TOC
 
 Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. One level of nesting is supported.
 
@@ -153,3 +166,86 @@ images/
 
 Supported logo formats are `PNG`, `SVG`, `WebP`.
 
+## Page elements
+
+Standard Markdown elements are supported. 
+
+Admonitions must be written like this:
+
+```
+{% include admonition.html
+   type="warning"
+   title="Warning"
+   content="This one's a warning."
+%}
+```
+
+The following values are supported for the `type` variable: `note`, `warning`, `tip`, and `caution`.
+
+## API pages
+
+API pages can be rendered directly from a `JSON` or `YML` file. Two kinds of rendering is available: static page and interactive page.
+
+### Static API
+
+Create a folder called `_data` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format.
+
+Then, create a Markdown file with content similar to the following code snippet:
+
+```
+---
+layout: api
+title: REST API
+description: Simple JSON endpoints for Ledger
+---
+
+# {{ page.title }}
+
+{{ page.description }}
+
+{% for ep in site.data.api.endpoints %}
+## <span class="method">{{ ep.method }}</span> {{ ep.path }}
+
+{{ ep.description }}
+
+{% endfor %}
+```
+
+In this example, the `_data` folder contains a file called `api.json`, with the following structure:
+
+```
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/entries",
+      "description": "Returns all ledger entries"
+    },
+    {
+      "method": "POST",
+      "path": "/entries",
+      "description": "Creates an entry"
+    }
+  ]
+}
+```
+
+A static page is rendered, with all of the endpoints.
+
+### Interactive API
+
+Create a folder called `assets` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format. Make sure that this specification file is written in the OpenAPI format. 
+
+Then, create a Markdown file with the following content:
+
+```
+---
+layout: api-swagger
+title: REST API interactive
+openapi: /assets/openapi_vs.json
+---
+```
+
+The value of the `openapi` variable should contain the name of the API specification file. In this example, the name of the file is `openapi_vs.json`.
+
+The rendered page is interactive, with a try-it-out option.
