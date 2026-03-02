@@ -2,13 +2,18 @@
   "endpoints": [
     {
       "method": "GET",
-      "path": "/entries",
-      "description": "Returns all ledger entries"
+      "path": "/words/{word}",
+      "description": "Find words"
     },
     {
-      "method": "POST",
-      "path": "/entries",
-      "description": "Creates an entry"
+      "method": "GET",
+      "path": "/descriptions/{description}",
+      "description": "Find meanings that contain a phrase"
+    },
+    {
+      "method": "GET",
+      "path": "/categories/{category}",
+      "description": "Find all nouns in a category"
     }
   ]
 }

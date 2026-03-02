@@ -7,19 +7,15 @@ title: Ledger Theme for GitHub Pages
 
 ---
 
-Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages, and is suitable for projects with a small set of doc files. It supports:
+Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages, and is suitable for projects with a small set of doc files. 
 
-- Mermaid diagrams
-- Static API pages
-- Interactive API pages
+It supports [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }}), [static API pages]({{ '/examples/api-example.html' | relative_url }}), and [interactive API pages]({{ '/examples/api-example-swagger.html' | relative_url }}).
 
-Here are the demo pages for the two presets, `palmleaf` (light) and `night-ink` (dark), plus an example page to show how you can apply your own preferences as overrides:
+It has two presets, `palmleaf` (light) and `night-ink` (dark), with the option of overriding the presets with your preferences:
 
 - [Palmleaf]({{ '/examples/palmleaf.html' | relative_url }}), for the palmleaf look. Muted green with plant-ink brown text.
 - [Night Ink]({{ '/examples/night-ink.html' | relative_url }}), for the codex-in-lamplight look. Deep brown with gold lettering.
 - [Custom]({{ '/examples/custom-frontmatter.html' | relative_url }}), for your own colour choices.
-
-Ledger also supports [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }}), [static API]({{ '/examples/api-example.html' | relative_url }}), and [interactive API]({{ '/examples/api-example-swagger.html' | relative_url }}).
 
 ---------
 
@@ -171,13 +167,13 @@ Standard Markdown elements are supported.
 Admonitions must be written like this:
 
 {% raw %}
-
+{% highlight liquid %}
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
-
+{% endhighlight %}
 {% endraw %}
 
 The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
@@ -190,59 +186,53 @@ API pages can be rendered directly from a `JSON` or `YML` file. Two kinds of ren
 
 Create a folder called `_data` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format.
 
-Then, create a Markdown file with content similar to the following code snippet:
+Then, create a Markdown file with content similar to the following code snippet (which specifies, inter alia, that the layout file called `api` should be used):
 
 {% raw %}
+{% highlight liquid %}
 ---
 layout: api
-title: REST API
-description: Simple JSON endpoints for Ledger
+title: Title of the API
+description: Description of the API
 ---
 
 {% for ep in site.data.api.endpoints %}
 ## <span class="method">{{ ep.method }}</span> {{ ep.path }}
-
 {{ ep.description }}
-
 {% endfor %}
 
+{% endhighlight %}
 {% endraw %}
 
-In this example, the `_data` folder contains a file called `api.json`, with the following structure:
+In this example, the `_data` folder contains a file called `api.json`, with the following structure, which is rendered as a static page:
 
 ```
 {
   "endpoints": [
     {
-      "method": "GET",
-      "path": "/entries",
-      "description": "Returns all ledger entries"
+      "method": "GET/PUT/etc.",
+      "path": "/path_name",
+      "description": "description"
     },
-    {
-      "method": "POST",
-      "path": "/entries",
-      "description": "Creates an entry"
-    }
+...
   ]
 }
 ```
 
-A static page is rendered, with all of the endpoints.
+See [static API example page]({{ '/examples/api-example.html' | relative_url }}).
 
 ### Interactive API
 
 Create a folder called `assets` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format. Make sure that this specification file is written in the OpenAPI format. 
 
-Then, create a Markdown file with the following content:
+Then, create a Markdown file with the following content  (which specifies, inter alia, that the layout file called `api-swagger` should be used):
 
 ```
 ---
 layout: api-swagger
-title: REST API interactive
-openapi: /assets/openapi_vs.json
+title: Title of the API
+openapi: /assets/name_of_your_api_spec_file.json
 ---
 ```
 
-The value of the `openapi` variable should contain the name of the API specification file. In this example, the name of the file is `openapi_vs.json`.
-
-The rendered page is interactive, with a try-it-out option.
+The rendered page is interactive. See [interactive API example page]({{ '/examples/api-example-swagger.html' | relative_url }}).
