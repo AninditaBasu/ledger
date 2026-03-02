@@ -99,7 +99,7 @@ ledger:
 ---
 </pre>
 
-Customisation work by the following order of priority: Preset < Site config < Page frontmatter.
+Customisation work by the following order of priority: Preset &lt; Site config &lt; Page frontmatter.
 
 This means that the variables in the page frontmatter have the highest priority, followed by the values you specify through your `_config.yml` file. The default (and lowest priority) is the values specified in the two presets, which are `palmleaf` and `night-ink`.
 
@@ -110,7 +110,7 @@ title: The title of your website
 author: Your name
 description: A human-friendly, SEO-friendly, RAG-friendly description.
 github:
-  repository_url: https://github.com/<your_github_name>/<your_repo_name>
+  repository_url: https://github.com/&lt;your_github_name&gt;/&lt;your_repo_name&gt;
 remote_theme: AninditaBasu/ledger
 plugins:
   - jekyll-remote-theme
