@@ -19,16 +19,8 @@ Ledger has two presets, `palmleaf` (light) and `night-ink` (dark), with the opti
 
 ---------
 
-## On this page
-
-- [Enabling the theme](#enabling-the-theme)
-- [Configuring the theme](#configuring-the-theme)
-- [Setting up the sidebar ToC](#setting-up-the-sidebar-ToC)
-- [Logos and favicons](#logos-and-favicons)
-- [Page elements](#page-elements)
-- [API pages](#api-pages)
-  -  [Static API](#static-api)
-  -  [Interactive API](#interactive-api)
+* TOC
+{:toc}
 
 ---------
 

@@ -11,12 +11,4 @@ theme: null
 github:
   repository_url: https://github.com/AninditaBasu/ledger
 
-kramdown:
-  toc_levels: 2..3
-  auto_ids: true
 
-defaults:
-  - scope:
-      path: ""
-    values:
-      toc: true

@@ -144,16 +144,6 @@
 
   <main class="content">
   
-  {% if page.toc != false %}
-  {% assign toc = content | toc_only %}
-  {% if toc != "" %}
-    <aside class="page-toc">
-      <div class="toc-title">On this page</div>
-      {{ toc }}
-    </aside>
-  {% endif %}
-{% endif %}
-  
     {{ content }}
 
     <footer>
