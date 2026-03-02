@@ -26,18 +26,6 @@ plugins:
 
 ---------
 
-## Headings
-
-# This is heading 1
-
-## This is heading 2
-
-### This is heading 3
-
-#### This is heading 4
-
----
- 
 ## Paragraphs
 
 Meghaduta is a lyric poem written by Kalidasa (c. 4th–5th century CE), considered to be one of the greatest Sanskrit poets. It describes how a _yaksha_, who had been banished by his master to a remote region for a year, asked a cloud to take a message of love to his wife. The poem become well-known in Sanskrit literature and inspired other poets to write similar poems (known as messenger-poems or Sandesha Kavya) on similar themes.
