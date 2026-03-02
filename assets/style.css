@@ -62,7 +62,6 @@ body {
 /* Main content area is offset to avoid the sidebar */
 .content {
   margin-left: 250px;
-  margin-right: 260px;
   padding: 3rem 3.5rem 4rem;
   max-width: 900px;
 }
