@@ -11,3 +11,5 @@ theme: null
 github:
   repository_url: https://github.com/AninditaBasu/ledger
 
+kramdown:
+  toc_levels: 2..3

@@ -62,6 +62,7 @@ body {
 /* Main content area is offset to avoid the sidebar */
 .content {
   margin-left: 250px;
+  margin-right: 260px;
   padding: 3rem 3.5rem 4rem;
   max-width: 900px;
 }
@@ -107,11 +108,12 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #e3ead3 #c8c1a3;
   padding-bottom: 0.3rem;
+  line-height: 1.5;
 }
 
 .sidebar nav a {
   display: block;
-  padding: 0.3rem 0;
+  padding: 0;
   text-decoration: none;
   color: var(--text-muted);
 }
@@ -315,6 +317,49 @@ a:hover {
 }
 
 /* -------------------------
+   On-page ToC
+  ------------------------- */
+
+.page-toc {
+  position: fixed;
+  top: 3rem;
+  right: 2rem;
+  width: 220px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  bottom: 2rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 4rem);
+}
+
+.toc-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-heading);
+}
+
+.page-toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.page-toc li {
+  margin-bottom: 0.3rem;
+}
+
+.page-toc a {
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.page-toc a:hover {
+  color: var(--accent);
+}
+
+
+/* -------------------------
    Admonitions
   ------------------------- */
 
@@ -399,7 +444,9 @@ a:hover {
   stroke-width: 1.2px;
 }
 
-/* API layout */
+/* -------------------------
+API layout
+-------------------------- */
 
 .api-doc {
   max-width: 900px;
@@ -461,8 +508,13 @@ a:hover {
     border-bottom: 1px solid var(--border-color);
   }
 
+.page-toc {
+    display: none;
+  }
+  
   .content {
     margin-left: 0;
+	margin-right: 0;
     padding: 2rem 1.5rem 3rem;
   }
 

@@ -11,7 +11,7 @@ Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It 
 
 It supports [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }}), [static API pages]({{ '/examples/api-example.html' | relative_url }}), and [interactive API pages]({{ '/examples/api-example-swagger.html' | relative_url }}).
 
-It has two presets, `palmleaf` (light) and `night-ink` (dark), with the option of overriding the presets with your preferences:
+Ledger has two presets, `palmleaf` (light) and `night-ink` (dark), with the option of overriding the presets with your preferences:
 
 - [Palmleaf]({{ '/examples/palmleaf.html' | relative_url }}), for the palmleaf look. Muted green with plant-ink brown text.
 - [Night Ink]({{ '/examples/night-ink.html' | relative_url }}), for the codex-in-lamplight look. Deep brown with gold lettering.

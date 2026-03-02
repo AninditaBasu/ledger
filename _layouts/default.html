@@ -143,6 +143,16 @@
   </aside>
 
   <main class="content">
+  
+  {% if page.toc != false %}
+    {% if content contains "<h2" %}
+    <aside class="page-toc">
+      <div class="toc-title">On this page</div>
+      {{ content | toc_only }}
+    </aside>
+    {% endif %}
+  {% endif %}
+  
     {{ content }}
 
     <footer>
