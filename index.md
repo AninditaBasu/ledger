@@ -174,13 +174,13 @@ Standard Markdown elements are supported.
 
 Admonitions must be written like this:
 
-<pre>
+```
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
-</pre>
+```
 
 The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
 
@@ -194,7 +194,7 @@ Create a folder called `_data` in your project root (next to `_config.yml`). Pla
 
 Then, create a Markdown file with content similar to the following code snippet:
 
-<pre>
+```
 ---
 layout: api
 title: REST API
@@ -207,11 +207,11 @@ description: Simple JSON endpoints for Ledger
 {{ ep.description }}
 
 {% endfor %}
-</pre>
+```
 
 In this example, the `_data` folder contains a file called `api.json`, with the following structure:
 
-<pre>
+```
 {
   "endpoints": [
     {
@@ -226,7 +226,7 @@ In this example, the `_data` folder contains a file called `api.json`, with the 
     }
   ]
 }
-</pre>
+```
 
 A static page is rendered, with all of the endpoints.
 
@@ -236,13 +236,13 @@ Create a folder called `assets` in your project root (next to `_config.yml`). Pl
 
 Then, create a Markdown file with the following content:
 
-<pre>
+```
 ---
 layout: api-swagger
 title: REST API interactive
 openapi: /assets/openapi_vs.json
 ---
-</pre>
+```
 
 The value of the `openapi` variable should contain the name of the API specification file. In this example, the name of the file is `openapi_vs.json`.
 
