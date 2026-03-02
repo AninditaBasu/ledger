@@ -167,13 +167,13 @@ Standard Markdown elements are supported.
 Admonitions must be written like this:
 
 {% raw %}
-{% highlight liquid %}
+```liquid
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
-{% endhighlight %}
+```
 {% endraw %}
 
 The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
@@ -189,7 +189,7 @@ Create a folder called `_data` in your project root (next to `_config.yml`). Pla
 Then, create a Markdown file with content similar to the following code snippet (which specifies, inter alia, that the layout file called `api` should be used):
 
 {% raw %}
-{% highlight liquid %}
+```liquid
 ---
 layout: api
 title: Title of the API
@@ -201,7 +201,7 @@ description: Description of the API
 {{ ep.description }}
 {% endfor %}
 
-{% endhighlight %}
+```
 {% endraw %}
 
 In this example, the `_data` folder contains a file called `api.json`, with the following structure, which is rendered as a static page:
