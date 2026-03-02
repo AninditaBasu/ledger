@@ -20,17 +20,14 @@ ledger:
   preset: night-ink
 ```
 
----
+---------
 
-- [Headings](#headings)
-- [Paragraphs](#paragraphs)
-- [Lists](#lists)
-- [Tables](#tables)
-- [Codes](#codes)
-- [Admonitions](#admonitions)
-- [Images](#images)
+**On this page**
 
----
+* TOC
+{:toc}
+
+---------
 
 ## Headings
 

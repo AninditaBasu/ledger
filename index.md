@@ -19,6 +19,8 @@ Ledger has two presets, `palmleaf` (light) and `night-ink` (dark), with the opti
 
 ---------
 
+**On this page**
+
 * TOC
 {:toc}
 
