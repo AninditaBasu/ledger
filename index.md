@@ -27,19 +27,20 @@ Also see the following pages:
 
 ---------
 
-- [How to enable the theme](#how-to-enable-the-theme)
-- [Theme configuration](#theme-configuration)
-- [Specifying the left-column TOC](#specifying-the-left-column-toc)
+## On this page
+
+- [Enabling the theme](#enabling-the-theme)
+- [Configuring the theme](#configuring-the-theme)
+- [Setting up the sidebar ToC](#setting-up-the-sidebar-ToC)
 - [Logos and favicons](#logos-and-favicons)
 - [Page elements](#page-elements)
 - [API pages](#api-pages)
   -  [Static API](#static-api)
   -  [Interactive API](#interactive-api)
 
-
 ---------
 
-## How to enable the theme
+## Enabling the theme
 
 1. In your own repository root, create a file named `_config.yml` with the following code snippet:
 
@@ -53,15 +54,15 @@ Also see the following pages:
 
 Your site should build itself with the `palmleaf` preset, which is the default. To use the dark theme (called `night-ink`), edit your `_config.yml` like so:
 
-```
+<pre>
 remote_theme: AninditaBasu/ledger
 plugins:
   - jekyll-remote-theme
 ledger:
   preset: night-ink
-```
+</pre>
 
-## Theme configuration
+## Configuring the theme
 
 You can customise the `ledger` theme by specifying the following fields in your site `_config.yml` file. 
 
@@ -88,7 +89,7 @@ You can customise the `ledger` theme by specifying the following fields in your 
 
 Additionally, you can set the theme of any page to be different from the site theme, by specifying an override through the page front-matter, like this:
 
-```
+<pre>
 ---
 title: Dark Archive
 ledger:
@@ -96,7 +97,7 @@ ledger:
   palette:
     accent: red
 ---
-```
+</pre>
 
 Customisation work by the following order of priority: Preset < Site config < Page frontmatter.
 
@@ -104,31 +105,28 @@ This means that the variables in the page frontmatter have the highest priority,
 
 Here's an example snippet for `_config.yml`:
 
-```
+<pre>
 title: The title of your website
 author: Your name
 description: A human-friendly, SEO-friendly, RAG-friendly description.
 github:
   repository_url: https://github.com/<your_github_name>/<your_repo_name>
-
 remote_theme: AninditaBasu/ledger
-
 plugins:
   - jekyll-remote-theme
-
 ledger:
   preset: night-ink
   palette:
     accent: red
-```
+</pre>
 
-## Specifying the left-column TOC
+## Setting up the sidebar ToC
 
 Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. One level of nesting is supported.
 
 For example:
 
-```
+<pre>
 - title: Home
   url: /
 - title: Installing
@@ -145,11 +143,23 @@ For example:
       url: /config-action.html
     - title: Workflows
       url: /config-workflow.html
-```
+</pre>
 
 ## Logos and favicons
 
-You can display a custom logo in the sidebar and a favicon in the browser tab. Place your images in an `images` folder in your project root; the theme automatically detects them. You can have your logo and favicon in more than one size, for example:
+The logo goes on the sidebar and the favicon on the browser tab. Supported logo formats are `PNG`, `SVG`, `WebP`.
+
+Place your images in an `images` folder in your project root; the theme automatically detects them. 
+
+<pre>
+images/
+  logo.png
+  favicon.ico
+  favicon-16.png
+  favicon-32.png
+</pre>
+
+You can have your logo and favicon in more than one size, for example:
 
 | Purpose                | File name     | Recommended size    |
 | ------------------ | ------------- | ---------------------- |
@@ -158,31 +168,21 @@ You can display a custom logo in the sidebar and a favicon in the browser tab. P
 | Android/PWA  | `favicon-192.png`     | 192 x 192    |
 | Apple touch  | `apple-touch-icon.png`| 180 x 180    |
 
-```
-images/
-  logo.png
-  favicon.ico
-  favicon-16.png
-  favicon-32.png
-```
-
-Supported logo formats are `PNG`, `SVG`, `WebP`.
-
 ## Page elements
 
 Standard Markdown elements are supported. 
 
 Admonitions must be written like this:
 
-```
+<pre>
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
-```
+</pre>
 
-The following values are supported for the `type` variable: `note`, `warning`, `tip`, and `caution`.
+The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
 
 ## API pages
 
@@ -194,16 +194,12 @@ Create a folder called `_data` in your project root (next to `_config.yml`). Pla
 
 Then, create a Markdown file with content similar to the following code snippet:
 
-```
+<pre>
 ---
 layout: api
 title: REST API
 description: Simple JSON endpoints for Ledger
 ---
-
-# {{ page.title }}
-
-{{ page.description }}
 
 {% for ep in site.data.api.endpoints %}
 ## <span class="method">{{ ep.method }}</span> {{ ep.path }}
@@ -211,11 +207,11 @@ description: Simple JSON endpoints for Ledger
 {{ ep.description }}
 
 {% endfor %}
-```
+</pre>
 
 In this example, the `_data` folder contains a file called `api.json`, with the following structure:
 
-```
+<pre>
 {
   "endpoints": [
     {
@@ -230,7 +226,7 @@ In this example, the `_data` folder contains a file called `api.json`, with the 
     }
   ]
 }
-```
+</pre>
 
 A static page is rendered, with all of the endpoints.
 
@@ -240,13 +236,13 @@ Create a folder called `assets` in your project root (next to `_config.yml`). Pl
 
 Then, create a Markdown file with the following content:
 
-```
+<pre>
 ---
 layout: api-swagger
 title: REST API interactive
 openapi: /assets/openapi_vs.json
 ---
-```
+</pre>
 
 The value of the `openapi` variable should contain the name of the API specification file. In this example, the name of the file is `openapi_vs.json`.
 

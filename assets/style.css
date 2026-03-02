@@ -34,7 +34,7 @@ body {
   font-family: var(--font-body);
   background: var(--bg-main);
   color: var(--text-main);
-  line-height: 1.9; /* increased line height for cursive fonts */
+  line-height: 1.7;
 }
 
 /* -------------------------
@@ -105,6 +105,7 @@ body {
   overflow-y: auto;
   padding-right: 0.3rem;
   scrollbar-width: thin;
+  scrollbar-color: #e3ead3 #c8c1a3;
   padding-bottom: 0.3rem;
 }
 
