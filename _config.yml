@@ -12,7 +12,6 @@ github:
   repository_url: https://github.com/AninditaBasu/ledger
 
 kramdown:
-  toc: true
   toc_levels: 2..3
   auto_ids: true
 
