@@ -19,11 +19,7 @@ Here are the demo pages for the two presets, `palmleaf` (light) and `night-ink` 
 - [Night Ink]({{ '/examples/night-ink.html' | relative_url }}), for the codex-in-lamplight look. Deep brown with gold lettering.
 - [Custom]({{ '/examples/custom-frontmatter.html' | relative_url }}), for your own colour choices.
 
-Also see the following pages:
-
-- [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }})
-- [REST API]({{ '/examples/api-example.html' | relative_url }})
-- [REST API interactive]({{ '/examples/api-example-swagger.html' | relative_url }})
+Ledger also supports [Mermaid]({{ '/examples/mermaid-example.html' | relative_url }}), [static API]({{ '/examples/api-example.html' | relative_url }}), and [interactive API]({{ '/examples/api-example-swagger.html' | relative_url }}).
 
 ---------
 
@@ -54,13 +50,13 @@ Also see the following pages:
 
 Your site should build itself with the `palmleaf` preset, which is the default. To use the dark theme (called `night-ink`), edit your `_config.yml` like so:
 
-<pre>
+```
 remote_theme: AninditaBasu/ledger
 plugins:
   - jekyll-remote-theme
 ledger:
   preset: night-ink
-</pre>
+```
 
 ## Configuring the theme
 
@@ -89,7 +85,7 @@ You can customise the `ledger` theme by specifying the following fields in your 
 
 Additionally, you can set the theme of any page to be different from the site theme, by specifying an override through the page front-matter, like this:
 
-<pre>
+```
 ---
 title: Dark Archive
 ledger:
@@ -97,7 +93,7 @@ ledger:
   palette:
     accent: red
 ---
-</pre>
+```
 
 Customisation work by the following order of priority: Preset &lt; Site config &lt; Page frontmatter.
 
@@ -105,7 +101,7 @@ This means that the variables in the page frontmatter have the highest priority,
 
 Here's an example snippet for `_config.yml`:
 
-<pre>
+```
 title: The title of your website
 author: Your name
 description: A human-friendly, SEO-friendly, RAG-friendly description.
@@ -118,7 +114,7 @@ ledger:
   preset: night-ink
   palette:
     accent: red
-</pre>
+```
 
 ## Setting up the sidebar ToC
 
@@ -126,7 +122,7 @@ Create a file called `navigation.yml` inside a `_data` folder in your project ro
 
 For example:
 
-<pre>
+```
 - title: Home
   url: /
 - title: Installing
@@ -143,7 +139,7 @@ For example:
       url: /config-action.html
     - title: Workflows
       url: /config-workflow.html
-</pre>
+```
 
 ## Logos and favicons
 
@@ -151,13 +147,13 @@ The logo goes on the sidebar and the favicon on the browser tab. Supported logo 
 
 Place your images in an `images` folder in your project root; the theme automatically detects them. 
 
-<pre>
+```
 images/
   logo.png
   favicon.ico
   favicon-16.png
   favicon-32.png
-</pre>
+```
 
 You can have your logo and favicon in more than one size, for example:
 
@@ -174,13 +170,15 @@ Standard Markdown elements are supported.
 
 Admonitions must be written like this:
 
-```
+{% raw %}
+
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
-```
+
+{% endraw %}
 
 The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
 
@@ -194,7 +192,7 @@ Create a folder called `_data` in your project root (next to `_config.yml`). Pla
 
 Then, create a Markdown file with content similar to the following code snippet:
 
-```
+{% raw %}
 ---
 layout: api
 title: REST API
@@ -207,7 +205,8 @@ description: Simple JSON endpoints for Ledger
 {{ ep.description }}
 
 {% endfor %}
-```
+
+{% endraw %}
 
 In this example, the `_data` folder contains a file called `api.json`, with the following structure:
 
