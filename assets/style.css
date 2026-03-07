@@ -107,7 +107,7 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #e3ead3 #c8c1a3;
   padding-bottom: 0.3rem;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .sidebar nav a {
@@ -174,18 +174,18 @@ hr {
 ul, ol {
   padding-left: 1.6rem;      /* Indent from content margin */
   margin: 0.8rem 0;          /* Vertical spacing between paragraphs and lists */
-  line-height: 1.9;          /* Match body line-height for readability */
+  line-height: 1.7;
 }
 
 dl dt {
-  font-weight: 600;           /* Term is emphasized */
-  margin-top: 1rem;           /* Space above term */
+  font-weight: 600;           /* Term is emphasised */
+  margin-top: 1rem;
 }
 
 dl dd {
-  margin-left: 1rem;          /* Indent description slightly */
+  margin-left: 1rem;          /* Indent the description slightly */
   margin-bottom: 0.6rem;
-  line-height: 1.9;           /* Consistent spacing */
+  line-height: 1.7;
 }
 
 /* Optional: softer list markers */
@@ -199,17 +199,17 @@ ul li::marker, ol li::marker {
 
 table {
   border-collapse: collapse;  /* Avoid double borders */
-  width: 100%;                /* Full-width tables */
+  width: 100%;
   margin: 1.5rem 0;           /* Vertical spacing */
   font-size: 0.95rem;         /* Slightly smaller than body text */
 }
 
 th, td {
   border: 1px solid var(--border-color);
-  padding: 0.8rem 1rem;             /* Generous padding for readability */
+  padding: 0.8rem 1rem; 
   text-align: left;
   vertical-align: top;
-  line-height: 1.9;
+  line-height: 1.7;
 }
 
 th {
