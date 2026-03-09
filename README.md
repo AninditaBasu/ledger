@@ -36,7 +36,7 @@ It supports:
 
 See the theme in action, with its presets and possible customisations, at [https://aninditabasu.github.io/ledger/](https://aninditabasu.github.io/ledger/)
 
-## How to enable the theme
+## Enabling the theme
 
 1. In your own repository root, create a file named `_config.yml` with the following code snippet:
 
@@ -58,7 +58,7 @@ ledger:
   preset: night-ink
 ```
 
-## Theme configuration
+## Configuring the theme
 
 You can customise the `ledger` theme by specifying the following fields in your site `_config.yml` file. 
 
@@ -101,25 +101,22 @@ This means that the variables in the page frontmatter have the highest priority,
 
 Here's an example snippet for `_config.yml`:
 
-```
+```bash
 title: The title of your website
 author: Your name
 description: A human-friendly, SEO-friendly, RAG-friendly description.
 github:
   repository_url: https://github.com/<your_github_name>/<your_repo_name>
-
 remote_theme: AninditaBasu/ledger
-
 plugins:
   - jekyll-remote-theme
-
 ledger:
   preset: night-ink
   palette:
     accent: red
 ```
 
-## Specifying the left-column TOC
+## Setting up the sidebar ToC
 
 Create a file called `navigation.yml` inside a `_data` folder in your project root (next to `_config.yml`). Then, specify the ToC in it. One level of nesting is supported.
 
@@ -146,14 +143,9 @@ For example:
 
 ## Logos and favicons
 
-You can display a custom logo in the sidebar and a favicon in the browser tab. Place your images in an `images` folder in your project root; the theme automatically detects them. You can have your logo and favicon in more than one size, for example:
+The logo goes on the sidebar and the favicon on the browser tab. Supported logo formats are `PNG`, `SVG`, `WebP`.
 
-| Purpose                | File name     | Recommended size    |
-| ------------------ | ------------- | ---------------------- |
-| Legacy browser support | `favicon.ico`     | multi-size (16 x 16, 32 x 32, 48 x 48) |
-| Standard favicon  | `favicon-32.png`      | 32 x 32    |
-| Android/PWA  | `favicon-192.png`     | 192 x 192    |
-| Apple touch  | `apple-touch-icon.png`| 180 x 180    |
+Place your images in an `images` folder in your project root; the theme automatically detects them. 
 
 ```
 images/
@@ -163,7 +155,14 @@ images/
   favicon-32.png
 ```
 
-Supported logo formats are `PNG`, `SVG`, `WebP`.
+You can have your logo and favicon in more than one size, for example:
+
+| Purpose                | File name     | Recommended size    |
+| ------------------ | ------------- | ---------------------- |
+| Legacy browser support | `favicon.ico`     | multi-size (16 x 16, 32 x 32, 48 x 48) |
+| Standard favicon  | `favicon-32.png`      | 32 x 32    |
+| Android/PWA  | `favicon-192.png`     | 192 x 192    |
+| Apple touch  | `apple-touch-icon.png`| 180 x 180    |
 
 ## Page elements
 
@@ -171,15 +170,17 @@ Standard Markdown elements are supported.
 
 Admonitions must be written like this:
 
-```
+{% raw %}
+```liquid
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
 ```
+{% endraw %}
 
-The following values are supported for the `type` variable: `note`, `warning`, `tip`, and `caution`.
+The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
 
 ## API pages
 
@@ -189,65 +190,57 @@ API pages can be rendered directly from a `JSON` or `YML` file. Two kinds of ren
 
 Create a folder called `_data` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format.
 
-Then, create a Markdown file with content similar to the following code snippet:
+Then, create a Markdown file with content similar to the following code snippet (which specifies, inter alia, that the layout file called `api` should be used):
 
-```
+{% raw %}
+```liquid
 ---
 layout: api
-title: REST API
-description: Simple JSON endpoints for Ledger
+title: Title of the API
+description: Description of the API
 ---
-
-# {{ page.title }}
-
-{{ page.description }}
 
 {% for ep in site.data.api.endpoints %}
 ## <span class="method">{{ ep.method }}</span> {{ ep.path }}
-
 {{ ep.description }}
-
 {% endfor %}
-```
 
-In this example, the `_data` folder contains a file called `api.json`, with the following structure:
+```
+{% endraw %}
+
+In this example, the `_data` folder contains a file called `api.json`, with the following structure, which is rendered as a static page:
 
 ```
 {
   "endpoints": [
     {
-      "method": "GET",
-      "path": "/entries",
-      "description": "Returns all ledger entries"
+      "method": "GET/PUT/etc.",
+      "path": "/path_name",
+      "description": "description"
     },
-    {
-      "method": "POST",
-      "path": "/entries",
-      "description": "Creates an entry"
-    }
+...
   ]
 }
 ```
 
-A static page is rendered, with all of the endpoints.
+The rendered page is a list of all endpoints and their descriptions.
 
 ### Interactive API
 
 Create a folder called `assets` in your project root (next to `_config.yml`). Place the API specification file in this folder. The file can be in `JSON` or `YML` format. Make sure that this specification file is written in the OpenAPI format. 
 
-Then, create a Markdown file with the following content:
+Then, create a Markdown file with the following content  (which specifies, inter alia, that the layout file called `api-swagger` should be used):
 
 ```
 ---
 layout: api-swagger
-title: REST API interactive
-openapi: /assets/openapi_vs.json
+title: Title of the API
+openapi: /assets/name_of_your_api_spec_file.json
 ---
 ```
 
-The value of the `openapi` variable should contain the name of the API specification file. In this example, the name of the file is `openapi_vs.json`.
+The rendered page is interactive.
 
-The rendered page is interactive, with a try-it-out option.
 
 ## License
 
