@@ -1,7 +1,5 @@
-![GitHub License](https://img.shields.io/github/license/AninditaBasu/ledger)  !![GitHub Release](https://img.shields.io/github/v/release/AninditaBasu/ledger?logoColor=green)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/AninditaBasu/ledger) ![GitHub commits since latest release](https://img.shields.io/github/commits-since/AninditaBasu/ledger/latest?logoColor=green)
-
-
+![GitHub License](https://img.shields.io/github/license/AninditaBasu/ledger)  ![GitHub Release](https://img.shields.io/github/v/release/AninditaBasu/ledger?logoColor=green)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/AninditaBasu/ledger) ![GitHub commits since latest release]
 
 # `ledger` theme for GitHub Pages
 
