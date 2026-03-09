@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/latest-v1.2.1-green)
+
 # `ledger` theme for GitHub Pages
 
 Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages, and is suitable for projects with a small set of doc files. 
@@ -170,15 +172,13 @@ Standard Markdown elements are supported.
 
 Admonitions must be written like this:
 
-{% raw %}
-```liquid
+```
 {% include admonition.html
    type="warning"
    title="Warning"
    content="This one's a warning."
 %}
 ```
-{% endraw %}
 
 The value for the `type` variable must be one of `note`, `warning`, `tip`, or `caution`.
 
@@ -192,8 +192,7 @@ Create a folder called `_data` in your project root (next to `_config.yml`). Pla
 
 Then, create a Markdown file with content similar to the following code snippet (which specifies, inter alia, that the layout file called `api` should be used):
 
-{% raw %}
-```liquid
+```
 ---
 layout: api
 title: Title of the API
@@ -206,7 +205,6 @@ description: Description of the API
 {% endfor %}
 
 ```
-{% endraw %}
 
 In this example, the `_data` folder contains a file called `api.json`, with the following structure, which is rendered as a static page:
 
@@ -240,7 +238,6 @@ openapi: /assets/name_of_your_api_spec_file.json
 ```
 
 The rendered page is interactive.
-
 
 ## License
 
