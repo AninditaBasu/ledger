@@ -1,6 +1,6 @@
 ![GitHub License](https://img.shields.io/github/license/AninditaBasu/ledger)  ![GitHub Release](https://img.shields.io/github/v/release/AninditaBasu/ledger?logoColor=green)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/AninditaBasu/ledger) ![GitHub commits since latest release]
-
+  ![GitHub last commit](https://img.shields.io/github/last-commit/AninditaBasu/ledger)
+  
 # `ledger` theme for GitHub Pages
 
 Ledger is a documentation theme inspired by palmleafs and codex manuscripts. It is designed for clarity, readability, and zero-setup deployment on GitHub Pages, and is suitable for projects with a small set of doc files. 
