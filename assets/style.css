@@ -441,7 +441,6 @@ API layout
 
 .swagger-wrapper {
   padding: 2rem;
-  min-height: 80vh;
 }
 
 .swagger-ui {
@@ -452,13 +451,6 @@ API layout
   display: none;
 }
 
-.content--full {
-  max-width: none;
-}
-
-.content:has(.swagger-wrapper) {
-  max-width: none;
-}
 /* -------------------------
    Responsive layout
 -------------------------- */
