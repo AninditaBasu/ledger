@@ -459,6 +459,9 @@ API layout
   max-width: none;
 }
 
+.content:has(.swagger-wrapper) {
+  max-width: none;
+}
 /* -------------------------
    Responsive layout
 -------------------------- */
