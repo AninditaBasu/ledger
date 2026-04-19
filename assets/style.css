@@ -395,7 +395,7 @@ a:hover {
   background-color: var(--bg-main) !important;
 }
 
-/* Flowchart decision diamonds look nicer */
+/* Flowchart decision diamonds */
 .mermaid .node polygon {
   stroke-width: 1.2px;
 }
@@ -441,10 +441,13 @@ API layout
 
 .swagger-wrapper {
   padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .swagger-ui {
   font-family: var(--font-body);
+  width: 100%;
 }
 
 .swagger-ui .topbar {
