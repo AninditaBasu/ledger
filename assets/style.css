@@ -395,7 +395,7 @@ a:hover {
   background-color: var(--bg-main) !important;
 }
 
-/* Flowchart decision diamonds */
+/* Flowchart decision diamonds look nicer */
 .mermaid .node polygon {
   stroke-width: 1.2px;
 }
@@ -441,20 +441,22 @@ API layout
 
 .swagger-wrapper {
   padding: 2rem;
-  width: calc(100% + 7rem);
-  margin-left: -3.5rem;
-  margin-right: -3.5rem;
-  min-height: 100vh;
-  box-sizing: border-box;
 }
 
 .swagger-ui {
   font-family: var(--font-body);
-  width: 100%;
 }
 
 .swagger-ui .topbar {
   display: none;
+}
+
+.content .swagger-wrapper {
+  margin-left: -3.5rem;
+  margin-right: -3.5rem;
+  padding: 1rem 2rem;
+  width: calc(100% + 7rem);
+  max-width: none;
 }
 
 /* -------------------------
