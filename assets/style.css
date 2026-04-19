@@ -441,6 +441,7 @@ API layout
 
 .swagger-wrapper {
   padding: 2rem;
+  min-height: 80vh;
 }
 
 .swagger-ui {
