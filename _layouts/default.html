@@ -142,7 +142,7 @@
     </nav>
   </aside>
 
-  <main class="content">
+  <main class="content {% if page.layout == 'api-swagger' %}content--full{% endif %}">
   
     {{ content }}
 
