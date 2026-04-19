@@ -451,14 +451,6 @@ API layout
   display: none;
 }
 
-.content .swagger-wrapper {
-  margin-left: -3.5rem;
-  margin-right: -3.5rem;
-  padding: 1rem 2rem;
-  width: calc(100% + 7rem);
-  max-width: none;
-}
-
 .content:has(.swagger-wrapper) {
   max-width: none;
 }
